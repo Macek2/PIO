@@ -14,7 +14,7 @@ public class PioGame {
     public static void main(String[] args) {
 
         Player player = new Player();
-        player.name="Amadeusz";
+        player.setName("Amadeusz");
         
         Random rand = new Random();     //obiekt losujący
         int number;                     //wylosowana liczba
@@ -27,7 +27,7 @@ public class PioGame {
             System.out.println("Kostka: " + number);
 
             guess = player.guess();
-            System.out.println("Gracz: " + guess);
+            System.out.println("Gracz " + player.getName() + ": " + guess);
 
             if (number != guess) {
                 System.out.println("PUDŁO!");
