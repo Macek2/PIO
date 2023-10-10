@@ -1,3 +1,3 @@
 # PIO
 Podstawy Inżynierii Oprogramowania - laby
-*** GRA W RZUCANIE KOSTKĄ ***
+** GRA W RZUCANIE KOSTKĄ **
