@@ -7,5 +7,5 @@ public class Player{
         public int guess(){
             return answer.nextInt(6) + 1;
         }
-        
-    }
+    private String name;    
+}
