@@ -14,6 +14,8 @@ public class PioGame {
     public static void main(String[] args) {
 
         Player player = new Player();
+        player.name="Amadeusz";
+        
         Random rand = new Random();     //obiekt losujący
         int number;                     //wylosowana liczba
         int guess;                      //propozycja (strzał) gracza
