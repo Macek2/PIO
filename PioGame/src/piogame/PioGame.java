@@ -12,9 +12,11 @@ import java.util.Random;
  */
 public class PioGame {
     public static void main(String[] args) {
-
-        Player player = new Player("Piotr");
+        
+       // Player player = new Player("Piotr");
         //player.setName("Piotr");
+        PlayerHuman player = new PlayerHuman("Piotr");
+       
         
         Random rand = new Random();     //obiekt losujący
         int number;                     //wylosowana liczba
@@ -25,8 +27,8 @@ public class PioGame {
 
             number = rand.nextInt(6) + 1;
             System.out.println("Kostka: " + number);
-
-            guess = player.guess();
+            
+            guess = player.guess();      
             System.out.println("Gracz " + player.getName() + ": " + guess);
 
             if (number != guess) {

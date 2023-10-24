@@ -1,6 +1,7 @@
 package piogame;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Player {
     private Random answer = new Random();
@@ -27,7 +28,7 @@ public class Player {
             System.err.println("Nieprawidłowe imię!");
         } 
     }
-    
+
     //REGRESJA - cofanie się w kodzie
     //DRY - Don't repeat yourself - zasada: nie powtarzaj kodu
 }
