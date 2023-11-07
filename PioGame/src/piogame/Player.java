@@ -1,22 +1,16 @@
-package piogame;
-
 import java.util.Random;
 import java.util.Scanner;
 
-public class Player {
+public abstract class Player { //cała klasa musi byc abstrakcyjna jeśli jeden składnik jest abstrakcyjny
     private Random answer = new Random();
     private String name = "noname";
-        
+
     public Player(){}
-  
+
     public Player(String name){
         setName(name);
     }
-    
-    public int guess(){
-        return answer.nextInt(6) + 1;
-    }
-       
+
     public String getName(){
         return name;
     }
@@ -25,9 +19,12 @@ public class Player {
         if (name != null && !name.isEmpty()){
             this.name = name;
         } else {
-            System.err.println("Nieprawidłowe imię!");
-        } 
+            throw new IllegalArgumentException("Nieprawidłowe imię!");
+        }
     }
+
+    public abstract int guess();
+     //Abstrakcyjna metoda implementowana w klasach potomnych.
 
     //REGRESJA - cofanie się w kodzie
     //DRY - Don't repeat yourself - zasada: nie powtarzaj kodu

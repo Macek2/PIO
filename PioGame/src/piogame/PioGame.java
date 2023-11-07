@@ -1,4 +1,3 @@
-package piogame;
 import java.util.Random;
 
 /**
@@ -12,12 +11,19 @@ import java.util.Random;
  */
 public class PioGame {
     public static void main(String[] args) {
-        
-       // Player player = new Player("Piotr");
+
+        //Player player = new Player("Piotr");
         //player.setName("Piotr");
-        PlayerHuman player = new PlayerHuman("Piotr");
-       
-        
+        //PlayerHuman player = new PlayerHuman("Piotr");
+        Player player = new PlayerComp();
+
+        try{
+            player.setName("");
+        }
+        catch(IllegalArgumentException ex){
+            System.err.println("Błąd");
+        }
+
         Random rand = new Random();     //obiekt losujący
         int number;                     //wylosowana liczba
         int guess;                      //propozycja (strzał) gracza
@@ -27,8 +33,8 @@ public class PioGame {
 
             number = rand.nextInt(6) + 1;
             System.out.println("Kostka: " + number);
-            
-            guess = player.guess();      
+
+            guess = player.guess();
             System.out.println("Gracz " + player.getName() + ": " + guess);
 
             if (number != guess) {
@@ -40,6 +46,6 @@ public class PioGame {
 
         } while (number != guess);
     }
-    
+
 
 }
