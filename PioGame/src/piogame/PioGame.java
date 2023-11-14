@@ -18,10 +18,10 @@ public class PioGame {
         Player player = new PlayerComp();
 
         try{
-            player.setName("");
+            player.setName("Malgorzata");
         }
         catch(IllegalArgumentException ex){
-            System.err.println("Błąd");
+            System.err.println("Błąd! " + ex.getMessage());
         }
 
         Random rand = new Random();     //obiekt losujący

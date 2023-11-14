@@ -16,7 +16,7 @@ public abstract class Player { //cała klasa musi byc abstrakcyjna jeśli jeden 
     }
 
     public void setName(String name){
-        if (name != null && !name.isEmpty()){
+        if (name != null && name.matches("^[a-zA-Z0-9_\\-.]{3,}$")){
             this.name = name;
         } else {
             throw new IllegalArgumentException("Nieprawidłowe imię!");
