@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,40 +15,27 @@ import java.util.Random;
 public class PioGame {
     public static void main(String[] args) {
 
+        ArrayList <String> list = new ArrayList();
+        //list.add(1); zamiana na list.add(new Integer(1))
+        list.add("jeden");
+        list.add("dwa");
+        list.add("trzy");
+        System.out.println(list);
+
+        for (int i =0; i < list.size(); i++){
+            System.out.println(list.get(i));
+        }
+
         //Player player = new Player("Piotr");
-        //player.setName("Piotr");
+        // player.setName("Piotr");
         //PlayerHuman player = new PlayerHuman("Piotr");
-        Player player = new PlayerComp();
+        //Player player = new PlayerComp("Bot_Varus");
 
-        try{
-            player.setName("Malgorzata");
-        }
-        catch(IllegalArgumentException ex){
-            System.err.println("Błąd! " + ex.getMessage());
-        }
-
-        Random rand = new Random();     //obiekt losujący
-        int number;                     //wylosowana liczba
-        int guess;                      //propozycja (strzał) gracza
-
-        do {
-            System.out.println("---------------------");
-
-            number = rand.nextInt(6) + 1;
-            System.out.println("Kostka: " + number);
-
-            guess = player.guess();
-            System.out.println("Gracz " + player.getName() + ": " + guess);
-
-            if (number != guess) {
-                System.out.println("PUDŁO!");
-            }
-            else {
-                System.out.println("BRAWO!");
-            }
-
-        } while (number != guess);
+        //Game game = new Game();
+        //game.addPlayer(new PlayerComp("Bot_Varus"));
+        //game.play();
     }
-
-
 }
+
+
+
