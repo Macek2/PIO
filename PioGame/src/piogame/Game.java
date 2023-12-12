@@ -1,13 +1,27 @@
-import java.util.Random;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Game {
 
     private List<Player> players = new ArrayList<>();
     private Random rand = new Random();
     private int cnt = -1;
+
+    public final Statistics stats;
+
+    public Game(){
+        this(null);
+    }
+
+    public Game(Statistics stats) {
+        if(stats != null)
+            this.stats = stats;
+        else
+            this.stats=new NullStatistics();
+    }
+
+    public void printStats(){
+        stats.print();
+    }
 
     public void addPlayer(Player player) {
         players.forEach( p ->{
@@ -16,6 +30,8 @@ public class Game {
                 cnt-=1;
             }
         });
+        players.add(player);
+        stats.addPlayer(player);
     }
 
     private boolean nameExists(String name) {
@@ -31,12 +47,10 @@ public class Game {
         int number;                     //wylosowana liczba
         int guess;                      //propozycja (strzał) gracza
 
-        boolean repeat;
+        boolean repeat=true;
 
         do {
             System.out.println("---------------------");
-
-            repeat = true;
 
             number = rand.nextInt(6) + 1;
             System.out.println("Kostka: " + number);
@@ -47,6 +61,8 @@ public class Game {
 
                 if (number != guess) {
                     System.out.println("PUDŁO!");
+
+                    stats.updatePlayer(player);
                 } else {
                     System.out.println("BRAWO!");
                     repeat = false;
@@ -87,21 +103,3 @@ public class Game {
     }
 
 }
-
-//do {
-//    System.out.println("---------------------");
-
-//        number = rand.nextInt(6) + 1;
-//        System.out.println("Kostka: " + number);
-
-//        guess = player.guess();
-//        System.out.println("Gracz " + player.getName() + ": " + guess);
-
-//        if (number != guess) {
-//        System.out.println("PUDŁO!");
-//        }
-//        else {
-//        System.out.println("BRAWO!");
-//        }
-
-//        } while (number != guess);

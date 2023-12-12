@@ -1,11 +1,5 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 /**
  * Gra w odgadywanie wylosowanej liczby.
- *
  * Zasady:
  * - mistrz gry (komputer) rzuca kostką (losuje liczby z zakresu 1..6)
  * - gracz (też komputer) stara się odgadnąć liczbę (też losuje)
@@ -26,23 +20,28 @@ public class PioGame {
         //for (int i =0; i < list.size(); i++){
            // System.out.println(list.get(i));
         //}
-
+    
         //INNE METODY WYWOŁANIA GRACZA:
         //Player player = new Player("Piotr");
         // player.setName("Piotr");
         //PlayerHuman player = new PlayerHuman("Piotr");
         //Player player = new PlayerComp("Bot_Varus");
 
-        Game game = new Game();
+        Game game = new Game(new WinStatistics());
         game.addPlayer(new PlayerComp("Bot_Varus"));
         game.addPlayer(new PlayerComp("Bot_Blitzcrank"));
         game.addPlayer(new PlayerComp("Bot_Varus"));
         game.addPlayer(new PlayerComp("Bot_Blitzcrank"));
 
         game.printPlayers();
-        game.removePlayer("Bot_Blitzcrank");
+        //game.removePlayer("Bot_Blitzcrank");
 
-        game.play();
+        for(int i=0; i<10; i++) {
+            game.play();
+        }
+
+        //game.printStats();
+        game.stats.print();
     }
 }
 
